@@ -53,7 +53,7 @@ def report_police():
 
 
 if __name__ == '__main__':
-    phone_numbers = ["18301401092", "13911645993"]
+    phone_numbers = ["18301401092"]
     number = 0
     for each in phone_numbers:
         print(each)
@@ -65,10 +65,6 @@ if __name__ == '__main__':
             number =number + 1
             print("登录不成功")
         time.sleep(45)
-    print("--------------------")
-    print(number)
-    print(phone_numbers.__len__())
-    print("--------------------")
     if number == phone_numbers.__len__():
         report_police()
 
