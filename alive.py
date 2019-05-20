@@ -58,18 +58,16 @@ if __name__ == '__main__':
     for each in phone_numbers:
         print(each)
         login_act_result = post_request(each)
-        print(login_act_result.status_code)
+        # print(login_act_result.status_code)
+        # print(login_act_result.text)
+        # print(type(login_act_result.text))
 
         if login_act_result.status_code == 200:
             print("登录成功")
         else:
             number = number + 1
             print("登录不成功")
-        if type(login_act_result.text) is not dict:
-            print("返回解析错误")
-            report_police()
-            break
-            # time.sleep(45)
+            time.sleep(45)
     if number == phone_numbers.__len__():
         report_police()
 
