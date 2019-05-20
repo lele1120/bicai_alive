@@ -58,9 +58,6 @@ if __name__ == '__main__':
     for each in phone_numbers:
         print(each)
         login_act_result = post_request(each)
-        # print(login_act_result.status_code)
-        # print(login_act_result.text)
-        # print(type(login_act_result.text))
 
         if login_act_result.status_code == 200:
             print("登录成功")
