@@ -11,7 +11,6 @@ import requests
 from twilio.rest import Client
 
 
-
 def post_request(phone_number):
     get_v_value = {
         "head": {"TYPE": "REQ_NO_VALIDATE", "SESSION_ID": "F03CC1F1A3106DA77F00674E8595CB17", "SCREEN_SIZE": "1334_750",
@@ -60,12 +59,17 @@ if __name__ == '__main__':
         print(each)
         login_act_result = post_request(each)
         print(login_act_result.status_code)
+
         if login_act_result.status_code == 200:
             print("登录成功")
         else:
-            number =number + 1
+            number = number + 1
             print("登录不成功")
-        time.sleep(45)
+        if type(login_act_result.text) is not dict:
+            print("返回解析错误")
+            report_police()
+            break
+            # time.sleep(45)
     if number == phone_numbers.__len__():
         report_police()
 
