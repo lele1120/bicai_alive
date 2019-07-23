@@ -112,7 +112,7 @@ if __name__ == '__main__':
         print(login_act_result.text)
         if login_act_result.status_code == 200:
             print("登录成功，服务器正常")
-            time.sleep(60)
+            # time.sleep(60)
             pass
         else:
             number = number + 1
