@@ -103,22 +103,31 @@ def report_police():
 
 if __name__ == '__main__':
     # phone_numbers = ["13911645993", "18301401092"]
-    phone_numbers = ["18303030303", "18301010101", "18305050505", "18302020202", "18304040404"]
+    phone_numbers = [
+        "18303030303", "18301010101", "18305050505", "18302020202",
+        "18304040404"
+    ]
+    # phone_numbers = [
+    #     "18303030309", "18301010109", "18305050509", "18302020209",
+    #     "18304040409"
+    # ]
     start = time.time()
     number = 0
+    print(phone_numbers.__len__())
     for each in phone_numbers:
         print(each)
         login_act_result = post_request(each)
         print(login_act_result.text)
-        if login_act_result.status_code == 200:
+        if login_act_result.status_code == 200 and login_act_result.json(
+        )["head"]["CODE"] == "0":
             print("登录成功，服务器正常")
             # time.sleep(60)
             pass
         else:
             number = number + 1
+            print(number)
             print("登录不成功，服务器异常")
             # time.sleep(60)
-            report_police()
 
     if number == phone_numbers.__len__():
         report_police()
